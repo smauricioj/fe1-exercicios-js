@@ -1,17 +1,30 @@
+// Utilitário
+function validaArr(arr) {
+    if(!Array.isArray(arr)) return false;
+    for(var elemento of arr)
+        if (typeof elemento !== "number")
+            return false;
+    return true;
+}
+
+// Exercícios
+
 function soma(arr) {
-    if(!Array.isArray(arr)) return;
+    if (!validaArr(arr)) return;
     let sum = 0;
     for(var elemento of arr) {
-        sum += Number(elemento);
+        sum += elemento;
     }
     return sum;
 }
 
 function media(arr) {
+    if (!validaArr(arr)) return;
     return soma(arr)/arr.length;
 }
 
 function menor(arr) {
+    if (!validaArr(arr)) return;
     let min = Infinity;
     for(var elemento of arr) {
         if(elemento < min) {
@@ -22,6 +35,7 @@ function menor(arr) {
 }
 
 function prata(arr) {
+    if (!validaArr(arr)) return;
     let max = [-Infinity, -Infinity];
     for(var elemento of arr) {
         if(elemento > max[0]) {
@@ -33,5 +47,7 @@ function prata(arr) {
 }
 
 function filtro(arr) {
+    if (!validaArr(arr)) return;
 
+    
 }
