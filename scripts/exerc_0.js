@@ -7,6 +7,14 @@ function validaArr(arr) {
     return true;
 }
 
+function validaArrDeStrings(arr) {
+    if(!Array.isArray(arr)) return false;
+    for(var elemento of arr)
+        if (typeof elemento !== "string")
+            return false;
+    return true;
+}
+
 // Exercícios
 
 function soma(arr) {
@@ -48,6 +56,42 @@ function prata(arr) {
 
 function filtro(arr) {
     if (!validaArr(arr)) return;
+    let ret = [];
+    for(var elemento of arr) {
+        if(elemento % 2 != 0) {
+            ret.push(elemento);
+        }
+    }
+    return ret;
+}
 
-    
+function inverso(arr) {
+    let ret = [];
+    for(var elemento of arr) {
+        ret.unshift(elemento);
+    }
+    return ret;
+}
+
+function verificador(arr) {
+    validaArrDeStrings(arr);
+    let nomeBusca = prompt("Informe o nome");
+    for(let nome of arr) {
+        if (nome === nomeBusca){
+            return true;
+        }
+    }
+    return false;
+}
+
+function comparador(arr1, arr2) {
+    if (!Array.isArray(arr1)) return false;
+    if (!Array.isArray(arr2)) return false;
+    if (arr1.length != arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
